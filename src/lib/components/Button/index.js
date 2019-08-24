@@ -18,6 +18,8 @@ const ButtonWrapper = styled.button`
   }};
   font-size: 15px;
   border-radius: 5px;
+  margin: 0.5em;
+  cursor: pointer;
 `;
 
 const Button = ({children, type, outline, onClick}) => (

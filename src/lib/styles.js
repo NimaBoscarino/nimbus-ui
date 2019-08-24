@@ -9,3 +9,9 @@ export const colors = {
 }
 
 export const borderRadius = '5px'
+
+
+export const shadows = {
+    normal: '0px 0px 6px -1px rgba(0,0,0,0.56)',
+    high: '0px 0px 15px 4px rgba(0,0,0,0.56)'
+}

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 
-import { Button, Dropdown } from '../src/lib/index'
+import { Button, Dropdown, Card } from '../src/lib/index'
 
 storiesOf('Button', module)
 .add('with text', () => <Button>Hello Button</Button>)
@@ -16,3 +16,29 @@ storiesOf('Button', module)
 
 storiesOf('Dropdown', module)
 .add('Reveal some options', () => <Dropdown text={'Reveal options'} />)
+
+storiesOf('Card', module)
+.add('Plain Card', () => <Card>Hello World</Card>)
+.add('Hover Card', () => {
+    return <Card hover={true}>Hello World</Card>
+})
+.add('Hover Card list', () => {
+    return (
+        <div>
+            <Card hover={true}>Hello World</Card>
+            <Card hover={true}>Hello World</Card>
+            <Card hover={true}>Hello World</Card>
+            <Card hover={true}>Hello World</Card>
+            <Card hover={true}>Hello World</Card>
+            <Card hover={true}>Hello World</Card>
+        </div>
+    )
+})
+.add('Card with buttons', () => {
+    return (
+        <Card>
+            <Button type={'success'}>Hello Button</Button>
+            <Button type={'danger'}>Hello Button</Button>
+        </Card>
+    )
+})
