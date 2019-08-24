@@ -10,17 +10,19 @@ it('Dropdown renders without crashing', () => {
 
 it('Display dropdown content after first click', () => {
   const {queryByText, getByLabelText, getByText} = render(
-    <Dropdown text={'Click to reveal'}/>,
+    <Dropdown text={'Click to reveal'} options={[
+      'One', 'Two', 'Three'
+    ]}/>,
   )
 
   // query* functions will return the element or null if it cannot be found
   // get* functions will return the element or throw an error if it cannot be found
-  expect(queryByText('Dropdown content')).toBeNull()
+  expect(queryByText('One')).toBeNull()
 
   // the queries can accept a regex to make your selectors more resilient to content tweaks and changes.
   fireEvent.click(getByText(/Click to reveal/i))
 
   // .toBeInTheDocument() is an assertion that comes from jest-dom
   // otherwise you could use .toBeDefined()
-  expect(getByText('Dropdown content')).toBeTruthy()
+  expect(getByText('One')).toBeTruthy()
 })

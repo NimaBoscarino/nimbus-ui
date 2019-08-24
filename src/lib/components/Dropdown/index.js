@@ -2,8 +2,9 @@ import React, { useState} from 'react';
 import {colors, borderRadius} from '../../styles'
 import Button from '../Button/index'
 import styled from 'styled-components';
+import OptionsList from '../OptionsList/index';
 
-const Dropdown = ({text, type, outline, onClick}) => {
+const Dropdown = ({text, type, outline, onClick, options}) => {
   const [dropdown, setDropdown] = useState(false)
   
   const handleClick = () => {
@@ -16,8 +17,9 @@ const Dropdown = ({text, type, outline, onClick}) => {
           {text}
       </Button>
       {
-        dropdown && <p>Dropdown content</p>
+        dropdown && <OptionsList dropdown options={options}/>
       }
+
     </>
   )
 };

@@ -6,7 +6,8 @@ import {
     Button,
     Dropdown,
     Card,
-    TextInput
+    TextInput,
+    OptionsList
 } from '../src/lib/index'
 
 storiesOf('Button', module)
@@ -18,9 +19,23 @@ storiesOf('Button', module)
 .add('outline success', () => <Button type={'success'} outline={true}>Hello Button</Button>)
 .add('outline danger', () => <Button type={'danger'} outline={true}>Hello Button</Button>)
 
+storiesOf('OptionsList', module)
+.add('List of options', () => {
+    return (
+        <OptionsList
+            options={[
+                'One',
+                'Two',
+                'Three'
+            ]}
+        />
+    )
+})
 
 storiesOf('Dropdown', module)
-.add('Reveal some options', () => <Dropdown text={'Reveal options'} />)
+.add('Reveal some options', () => <Dropdown text={'Reveal options'} options={[
+    'One', 'Two', 'Three'
+]}/>)
 
 storiesOf('Card', module)
 .add('Plain Card', () => <Card>Hello World</Card>)
