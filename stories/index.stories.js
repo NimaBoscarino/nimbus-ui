@@ -2,7 +2,12 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 
-import { Button, Dropdown, Card } from '../src/lib/index'
+import {
+    Button,
+    Dropdown,
+    Card,
+    TextInput
+} from '../src/lib/index'
 
 storiesOf('Button', module)
 .add('with text', () => <Button>Hello Button</Button>)
@@ -42,3 +47,7 @@ storiesOf('Card', module)
         </Card>
     )
 })
+
+storiesOf('Text Input', module)
+.add('Plain text input', () => <TextInput />)
+.add('Clearable input', () => <TextInput clearable={true}/>)
