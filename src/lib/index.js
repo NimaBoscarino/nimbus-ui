@@ -1,8 +1,7 @@
-import Example from './components/Example';
-import SecondExample from './components/SecondExample';
-
-export default Example;
+import Button from './components/Button/index'
+import Dropdown from './components/Dropdown/index'
 
 export {
-  SecondExample,
+  Button,
+  Dropdown
 };
