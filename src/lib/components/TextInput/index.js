@@ -8,10 +8,14 @@ const InputWrapper = styled.input`
   border: solid 2px ${colors.primary};
   border-radius: ${borderRadius};
   padding: 0.5em;
-  font-size: 15px;
-  
+  font-size: 15px;  
 `
-const TextInput = ({ onChange, clearable, name }) => {
+
+const CharCount = styled.span`
+  margin: 0.5em;
+`
+
+const TextInput = ({ onChange, clearable, name, characterCount }) => {
   const [currentValue, setCurrentValue] = useState("")
   const handleChange = (e) => {
     setCurrentValue(e.target.value)
@@ -26,6 +30,9 @@ const TextInput = ({ onChange, clearable, name }) => {
       clearable && <Button onClick={() => {
         setCurrentValue("")
       }}>Clear</Button>
+    }
+    {
+      characterCount && <CharCount title="Character Count">{currentValue.length}</CharCount>
     }
     </>
   )

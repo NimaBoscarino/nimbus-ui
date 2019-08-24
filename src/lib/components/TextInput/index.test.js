@@ -44,3 +44,25 @@ it('Clearable TextInput can be cleared', () => {
   expect(input).toHaveValue("")
 });
 
+
+it('Character count updates correctly', () => {
+  const {getByLabelText, getByTitle, getByText } = render(
+    <TextInput name="Name" characterCount={true} clearable={true}/>,
+  )
+
+  const input = getByLabelText('Name')
+  const charCount = getByTitle(/Character Count/i)
+
+  // query* functions will return the element or null if it cannot be found
+  // get* functions will return the element or throw an error if it cannot be found
+  expect(charCount).toContainHTML("0")
+
+  fireEvent.change(input, { target: { value: 'Hello world!' } })
+
+  expect(charCount).toContainHTML("12")
+
+  fireEvent.click(getByText(/Clear/i))
+
+  expect(charCount).toContainHTML("0")
+});
+
