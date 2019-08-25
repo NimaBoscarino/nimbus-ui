@@ -9,6 +9,7 @@ const InputWrapper = styled.input`
   border-radius: ${borderRadius};
   padding: 0.5em;
   font-size: 15px;  
+  margin-left: 0.5em;
 `
 
 const CharCount = styled.span`
@@ -23,18 +24,20 @@ const TextInput = ({ onChange, clearable, name, characterCount }) => {
   }
 
   return (
-    <>
+    <div>
     <label>{name}</label>
     <InputWrapper aria-label={name} onChange={handleChange} value={currentValue}/>
     {
-      clearable && <Button onClick={() => {
+      clearable && <Button onClick={(e) => {
+        e.preventDefault()
         setCurrentValue("")
+        handleChange(e)
       }}>Clear</Button>
     }
     {
       characterCount && <CharCount title="Character Count">{currentValue.length}</CharCount>
     }
-    </>
+    </div>
   )
 }
 

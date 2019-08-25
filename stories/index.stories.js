@@ -8,7 +8,8 @@ import {
     Card,
     TextInput,
     OptionsList,
-    Radio
+    Radio,
+    Form
 } from '../src/lib/index'
 
 storiesOf('Button', module)
@@ -108,4 +109,56 @@ storiesOf('Radio Buttons', module)
         </Radio.List>
     )
 })
+
+storiesOf('Forms', module)
+.add('Form with text input', () => {
+    return (
+        <Form.Body onSubmit={(formVals) => {
+            console.log('formVals:', formVals)
+        }}>
+            <Form.TextInput name="Address"/>
+        </Form.Body>
+    )
+})
+.add('Form with clearable text input', () => {
+    return (
+        <Form.Body>
+            <Form.TextInput name="Dog Breed" clearable={true}/>
+        </Form.Body>
+    )
+})
+.add('Form with multiple text inputs', () => {
+    return (
+        <Form.Body onSubmit={(formVals) => {
+            console.log('formVals:', formVals)
+        }}>
+        <Form.TextInput name="Address"/>
+            <Form.TextInput name="Dog Breed" clearable={true}/>
+        </Form.Body>
+    )
+})
+.add('Listen for values changing', () => {
+    return (
+        <Form.Body onValueChange={(formVals) => {
+            console.log('formVals:', formVals)
+        }}>
+            <Form.TextInput name="Address"/>
+            <Form.TextInput name="Dog Breed" clearable={true}/>
+        </Form.Body>
+    )
+})
+.add('Form without submit button', () => {
+    return (
+        <Form.Body
+            onValueChange={(formVals) => {
+                console.log('formVals:', formVals)
+            }}
+            submit={false}
+        >
+            <Form.TextInput name="Address"/>
+            <Form.TextInput name="Dog Breed" clearable={true}/>
+        </Form.Body>
+    )
+})
+
 
