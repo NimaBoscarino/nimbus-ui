@@ -7,7 +7,8 @@ import {
     Dropdown,
     Card,
     TextInput,
-    OptionsList
+    OptionsList,
+    Radio
 } from '../src/lib/index'
 
 storiesOf('Button', module)
@@ -68,3 +69,43 @@ storiesOf('Text Input', module)
 .add('Clearable input', () => <TextInput clearable={true}/>)
 .add('With character count', () => <TextInput characterCount={true}/>)
 .add('With character count and clearable', () => <TextInput clearable={true} characterCount={true}/>)
+
+storiesOf('Radio Buttons', module)
+.add('RadioButtons', () => {
+    return (
+        <Radio.List name={"city"}>
+            <Radio.Option>Vancouver</Radio.Option>
+            <Radio.Option>Toronto</Radio.Option>
+            <Radio.Option>Milano</Radio.Option>
+        </Radio.List>
+    )
+})
+.add('Multiple RadioButtons', () => {
+    return (
+        <>
+        <Radio.List name={"Rapper"}>
+            <Radio.Option>Kanye</Radio.Option>
+            <Radio.Option>Drake</Radio.Option>
+            <Radio.Option>Biggie</Radio.Option>
+        </Radio.List>
+        <Radio.List name={"city"}>
+            <Radio.Option>Vancouver</Radio.Option>
+            <Radio.Option>Toronto</Radio.Option>
+            <Radio.Option>Milano</Radio.Option>
+        </Radio.List>
+        </>
+    )
+})
+.add('Handle selected option', () => {
+    return (
+        <Radio.List
+            name={"Rapper"}
+            onSelect={val => console.log(`val: ${val}`)}
+        >
+            <Radio.Option>Kanye</Radio.Option>
+            <Radio.Option>Drake</Radio.Option>
+            <Radio.Option>Biggie</Radio.Option>
+        </Radio.List>
+    )
+})
+
