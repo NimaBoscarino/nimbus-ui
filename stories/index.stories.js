@@ -9,7 +9,8 @@ import {
     TextInput,
     OptionsList,
     Radio,
-    Form
+    Form,
+    Modal
 } from '../src/lib/index'
 
 storiesOf('Button', module)
@@ -180,5 +181,135 @@ storiesOf('Forms', module)
             </Form.Radio>
 
         </Form.Body>
+    )
+})
+
+storiesOf('Modal', module)
+.add('Trigger single mini-modal with button', () => {
+    return (
+    <Modal.Container>
+        <div style={{
+            height: '150px',
+            margin: '5px'
+        }}>
+            <Modal.Trigger>
+                <Button type="success">Show Modal</Button>
+            </Modal.Trigger>
+        </div>
+
+
+        
+        <Modal.Body>
+            <p style={{ color: 'white' }}>Hello</p>
+        </Modal.Body>
+    </Modal.Container>
+    )
+})
+.add('Many mini-modals for different components', () => {
+    return (
+        <>
+        <Modal.Container>
+            <div style={{
+                height: '150px',
+                margin: '5px'
+            }}>
+                <Modal.Trigger>
+                    <Button type="success">Show Modal</Button>
+                </Modal.Trigger>
+            </div>
+            <Modal.Body>
+                <p style={{ color: 'white' }}>Hello</p>
+            </Modal.Body>
+        </Modal.Container>        
+        <Modal.Container>
+            <div style={{
+                height: '150px',
+                margin: '5px'
+            }}>
+                <Modal.Trigger>
+                    <Button type="success">Show Modal</Button>
+                </Modal.Trigger>
+            </div>
+            <Modal.Body>
+                <p style={{ color: 'white' }}>Hello</p>
+            </Modal.Body>
+        </Modal.Container>
+        <Modal.Container>
+            <div style={{
+                height: '150px',
+                margin: '5px'
+            }}>
+                <Modal.Trigger>
+                    <Button type="success">Show Modal</Button>
+                </Modal.Trigger>
+            </div>
+            <Modal.Body>
+                <p style={{ color: 'white' }}>Hello</p>
+            </Modal.Body>
+        </Modal.Container>
+        </>
+    )
+})
+.add('Different mini-modals within the same component', () => {
+    return (
+        <Modal.Container>
+            <div style={{
+                height: '150px',
+                margin: '5px'
+            }}>
+                <Modal.Trigger modal={"1"}>
+                    <Button type="success">Show Modal 1</Button>
+                </Modal.Trigger>
+                <Modal.Trigger modal={"2"}>
+                    <Button type="success">Show Modal 2</Button>
+                </Modal.Trigger>
+            </div>
+
+            <Modal.Body modal={"1"}>
+                <p style={{ color: 'white' }}>Hello 1</p>
+            </Modal.Body>
+            <Modal.Body modal={"2"}>
+                <p style={{ color: 'red' }}>Hello 2</p>
+            </Modal.Body>
+        </Modal.Container>
+    )
+})
+.add('Form within Modal body', () => {
+    return (
+        <Modal.Container>
+            <div style={{
+                height: '500px',
+                margin: '5px'
+            }}>
+                <Modal.Trigger>
+                    <Button type="success">Show Modal 1</Button>
+                </Modal.Trigger>
+            </div>
+
+            <Modal.Body>
+                <div style={{
+                    padding: '25px'
+                }}>
+                    <Form.Body onSubmit={(formVals) => {
+                        console.log('formVals:', formVals)
+                    }}>
+                        <Form.TextInput name="Address"/>
+                        <Form.TextInput name="Dog Breed" clearable={true}/>
+                        <Form.Radio name={"Rapper"}>
+                            <Radio.Option>Kanye</Radio.Option>
+                            <Radio.Option>Drake</Radio.Option>
+                            <Radio.Option>Biggie</Radio.Option>
+                        </Form.Radio>
+
+                        <Form.Radio name={"Dog"}>
+                            <Radio.Option>Samoyed</Radio.Option>
+                            <Radio.Option>Beagle</Radio.Option>
+                            <Radio.Option>Schnauzer</Radio.Option>
+                        </Form.Radio>
+
+                    </Form.Body>
+                </div>
+            </Modal.Body>
+        </Modal.Container>
     )
 })
