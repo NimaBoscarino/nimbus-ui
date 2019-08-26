@@ -160,5 +160,25 @@ storiesOf('Forms', module)
         </Form.Body>
     )
 })
+.add('Complex Form with Text Input and Radio Button lists', () => {
+    return (
+        <Form.Body onSubmit={(formVals) => {
+            console.log('formVals:', formVals)
+        }}>
+            <Form.TextInput name="Address"/>
+            <Form.TextInput name="Dog Breed" clearable={true}/>
+            <Form.Radio name={"Rapper"}>
+                <Radio.Option>Kanye</Radio.Option>
+                <Radio.Option>Drake</Radio.Option>
+                <Radio.Option>Biggie</Radio.Option>
+            </Form.Radio>
 
+            <Form.Radio name={"Dog"}>
+                <Radio.Option>Samoyed</Radio.Option>
+                <Radio.Option>Beagle</Radio.Option>
+                <Radio.Option>Schnauzer</Radio.Option>
+            </Form.Radio>
 
+        </Form.Body>
+    )
+})

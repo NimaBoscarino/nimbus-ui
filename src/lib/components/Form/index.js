@@ -1,6 +1,7 @@
 import React, { useEffect, createContext, useReducer } from 'react';
 import {colors, borderRadius} from '../../styles'
 import TextInput from '../TextInput/index'
+import Radio from '../Radio/index'
 import Button from '../Button/index'
 import styled from 'styled-components';
 
@@ -73,7 +74,33 @@ const FormTextInput = (props) => {
   )
 }
 
+
+const FormRadioList = (props) => {
+  const { name } = props
+
+  return (
+    <FormContex.Consumer>
+      {
+        value => {
+          return (
+            <Radio.List name={name} onSelect={
+              (newValue) => {
+                value.dispatch({type: name, value: newValue})
+              }
+            }
+
+            {...props}
+            />
+          )
+        }
+      }
+
+    </FormContex.Consumer>
+  )
+}
+
 export default {
   Body,
-  TextInput: FormTextInput
+  TextInput: FormTextInput,
+  Radio: FormRadioList 
 };
