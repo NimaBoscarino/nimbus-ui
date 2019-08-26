@@ -15,7 +15,10 @@ import {
 
 storiesOf('Button', module)
 .add('with text', () => <Button>Hello Button</Button>)
-.add('with action', () => <Button onClick={() => alert('hello!')}>Hello Button</Button>)
+.add('with action', () => <Button onClick={() => {
+    alert('hello')
+    console.log('hello')
+}}>Hello Button</Button>)
 .add('success', () => <Button type={'success'}>Hello Button</Button>)
 .add('danger', () => <Button type={'danger'}>Hello Button</Button>)
 .add('outline primary', () => <Button type={'primary'} outline={true}>Hello Button</Button>)
