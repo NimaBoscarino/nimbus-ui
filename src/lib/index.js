@@ -6,6 +6,7 @@ import OptionsList from './components/OptionsList/index'
 import Radio from './components/Radio/index'
 import Form from './components/Form/index'
 import Modal from './components/Modal/index'
+import Notification from './components/Notification/index'
 
 export {
   Button,
@@ -15,5 +16,6 @@ export {
   OptionsList,
   Radio,
   Form,
-  Modal
+  Modal,
+  Notification
 };

@@ -10,7 +10,8 @@ import {
     OptionsList,
     Radio,
     Form,
-    Modal
+    Modal,
+    Notification
 } from '../src/lib/index'
 
 storiesOf('Button', module)
@@ -314,5 +315,27 @@ storiesOf('Modal', module)
                 </div>
             </Modal.Body>
         </Modal.Container>
+    )
+})
+
+storiesOf('Notifications', module)
+.add('Trigger notification on button press', () => {
+    return (
+        <Notification.Container>
+            <div style={{
+                height: '350px',
+                border: 'solid 1px black',
+                padding: '5px',
+                margin: '5px'
+            }}>
+                <Notification.Trigger message={"hello"}>
+                    <Button type="success">Hello</Button>
+                </Notification.Trigger>
+                <Notification.Trigger message={"bye"}>
+                    <Button type="success">Bye</Button>
+                </Notification.Trigger>
+
+            </div>
+        </Notification.Container>
     )
 })
