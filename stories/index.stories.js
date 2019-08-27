@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { storiesOf } from '@storybook/react';
 
@@ -318,24 +318,52 @@ storiesOf('Modal', module)
     )
 })
 
+const { useNotifications } = Notification
+const NotificationExample = () => {
+    const notification = useNotifications(Notification.NotificationContext)
+    return (
+        <div style={{
+            height: '350px',
+            border: 'solid 1px black',
+            padding: '5px',
+            margin: '5px'
+        }}>
+            <Button 
+                type="success"
+                onClick={() => notification("hello")}
+            >
+                Hello
+            </Button>
+            <Button 
+                type="danger"
+                onClick={() => notification("bye")}
+            >
+                Bye
+            </Button>
+        </div>
+    )
+}
+
 storiesOf('Notifications', module)
 .add('Trigger notification on button press', () => {
     return (
         <Notification.Container>
-            <div style={{
-                height: '350px',
-                border: 'solid 1px black',
-                padding: '5px',
-                margin: '5px'
-            }}>
-                <Notification.Trigger message={"hello"}>
-                    <Button type="success">Hello</Button>
-                </Notification.Trigger>
-                <Notification.Trigger message={"bye"}>
-                    <Button type="success">Bye</Button>
-                </Notification.Trigger>
-
-            </div>
+            <NotificationExample />
         </Notification.Container>
+    )
+})
+.add('Notifications are unique to the container', () => {
+    return (
+        <div style={{
+            display: 'flex',
+            flexDirection: 'row'
+        }}>
+            <Notification.Container>
+                <NotificationExample />
+            </Notification.Container>
+            <Notification.Container>
+                <NotificationExample />
+            </Notification.Container>
+        </div>
     )
 })

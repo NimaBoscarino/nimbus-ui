@@ -4,9 +4,12 @@ import Button from '../Button/index'
 import styled from 'styled-components';
 import { border } from 'polished';
 import { setState } from 'expect/build/jestMatchersObject';
+import { useNotifications } from '../../hooks/index'
 
 const NotificationContainerWrapper = styled.div`
   position: relative;
+  width: 100%;
+  height: 100%;
 `
 
 const WrappedNotification = styled.div`
@@ -55,7 +58,6 @@ const Container = ({ children }) => {
   const addNotification = (notification) => {
     setNotifications([...notifications, {id: Math.random(), text: notification}])
     setTimeout(() => popNotification(), 4000)
-
   }
 
   const popNotification = () => {
@@ -129,5 +131,7 @@ const Notification = ({ text }) => {
 
 export default {
   Container,
-  Trigger
+  Trigger,
+  NotificationContext,
+  useNotifications
 };
