@@ -1,4 +1,4 @@
-import React, { useEffect, createContext, useReducer } from 'react';
+import React, { useEffect, createContext, useReducer, useContext } from 'react';
 import {colors, borderRadius} from '../../styles'
 import TextInput from '../TextInput/index'
 import Radio from '../Radio/index'
@@ -52,51 +52,35 @@ const Body = ({ children, name, onSubmit, onValueChange, submit=true}) => {
 
 const FormTextInput = (props) => {
   const { name } = props
+  const { dispatch } = useContext(FormContex)
 
   return (
-    <FormContex.Consumer>
-      {
-        value => {
-          return (
-            <TextInput onChange={
-              (newValue) => {
-                value.dispatch({type: name, value: newValue})
-              }
-            }
-
-            {...props}
-            />
-          )
-        }
+    <TextInput onChange={
+      (newValue) => {
+        dispatch({type: name, value: newValue})
       }
+    }
 
-    </FormContex.Consumer>
+    {...props}
+    />
   )
 }
 
 
 const FormRadioList = (props) => {
   const { name } = props
-
+  const { dispatch } = useContext(FormContex)
   return (
-    <FormContex.Consumer>
-      {
-        value => {
-          return (
-            <Radio.List name={name} onSelect={
-              (newValue) => {
-                value.dispatch({type: name, value: newValue})
-              }
-            }
-
-            {...props}
-            />
-          )
+   
+      <Radio.List name={name} onSelect={
+        (newValue) => {
+          dispatch({type: name, value: newValue})
         }
       }
 
-    </FormContex.Consumer>
-  )
+      {...props}
+      />
+    )
 }
 
 export default {
