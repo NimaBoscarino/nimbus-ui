@@ -1,35 +1,5 @@
-# Nima UI - The only good React component library
+![](https://images.fineartamerica.com/images-medium-large/cumuluo-nimbus-clouds-kaj-r-svensson.jpg)
 
-Goals:
+[<h1 style="text-align:center;">Nimbus UI</h1>](https://nimaboscarino.github.io/nimbus-ui/)
 
-- easily installable
-- hooks!
-- React Router compatible
-
-Components:
-
-- Buttons
-- Text inputs
-- Date pickers
-- Cards
-- Badges
-- Carousel
-- Dark mode (+ tan mode)
-- Radio buttons
-- Switches
-- Checkboxes
-- Links
-- tables
-- badges
-- nav bar
-- notifications
-- ratings
-- Loaders
-- modals
-
-# Buttons
-
-- Primary button
-- Secondary button
-- Danger button!
-- Outlined button variations
+<h2 style="text-align:center;">Breezy React Components</h2>
