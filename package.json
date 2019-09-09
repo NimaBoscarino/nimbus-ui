@@ -1,6 +1,6 @@
 {
   "name": "nimbus-ui",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "The only good React component library",
   "main": "build/index.js",
   "scripts": {
